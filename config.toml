@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
+baseURL = "https://today-i-learn.onrender.com/"
 languageCode = "zh-cn"
 title = "逸围"
 theme = "hugo-bingo"
