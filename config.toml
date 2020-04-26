@@ -1,0 +1,40 @@
+baseURL = "http://example.org/"
+languageCode = "zh-cn"
+title = "逸围"
+theme = "hugo-bingo"
+
+
+# hugo-bingo config
+# https://themes.gohugo.io/hugo-bingo/
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 10
+
+  [[menu.main]]
+    identifier = "TIL"
+    name = "TIL"
+    url = "/til"
+    weight = 20
+
+[params]
+  dateFormat = "2006-01-02"
+  [[params.social]]
+    name = "github"
+    url = "https://github.com/kun-g"
+    weight = 10
+
+  [params.gravatar]
+    email = "nukoug@gmail.com"
+
+# [[params.social]]
+#   name = "twitter"
+#   url = "https://twitter.com/example"
+#   weight = 30
+
+# [[params.social]]
+#   name = "linkedin"
+#   url = "https://www.linkedin.com/in/example"
+#   weight = 20
