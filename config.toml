@@ -1,8 +1,9 @@
 baseURL = "https://today-i-learn.onrender.com/"
 languageCode = "zh-cn"
 title = "逸围"
-theme = "hugo-bingo"
+googleAnalytics = "UA-16479871-2"
 
+theme = "hugo-bingo"
 
 # hugo-bingo config
 # https://themes.gohugo.io/hugo-bingo/
