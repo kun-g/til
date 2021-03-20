@@ -9,7 +9,7 @@ now = datetime.now().astimezone() # TIL
 nowtz = now.strftime('%Y-%m-%dT%H:%M:%S%z')
 
 template = '''---
-title: {title}
+title: "{title}"
 date: {Date}
 draft: true
 tags: []
@@ -41,7 +41,7 @@ def update_file(filename):
             continue
         k, v = re.match('([a-zA-z0-9]+):([^\n]*)', lines[i]).groups()
         headers[k] = (v.strip(), i)
-    if int(headers['confidence'][0]) > 5:
+    if int(headers['confidence'][0]) >= 5:
         _, i = headers['draft']
         lines[i] = 'draft: false\n'
     content = ''.join(lines)
