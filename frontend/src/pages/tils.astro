@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { fetchAllTILs } from '@/lib/api';
+import { Badge, BadgeButton } from '@/components/catalyst-ui/badge';
 
 const pageTitle = 'TIL 一览';
 
@@ -26,9 +27,7 @@ const tils = await fetchAllTILs();
                 {tags && tags.length > 0 && (
                   <div class="flex flex-wrap gap-2 mt-2">
                     {tags.map((t: any) => (
-                      <span class="text-xs bg-zinc-100 dark:bg-zinc-700 text-zinc-600 dark:text-zinc-200 px-2 py-0.5 rounded-full">
-                        {t}
-                      </span>
+                      <BadgeButton color="purple" href={`/tils?tag=${t}`}>{t}</BadgeButton>
                     ))}
                   </div>
                 )}

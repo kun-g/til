@@ -20,7 +20,7 @@ export function MarkdownContent({ content, isCompact = false }: MarkdownContentP
         ul: ({node, ...props}) => <ul className={`list-disc ${isCompact ? "pl-4 mb-2" : "pl-5 mb-4"}`} {...props} />,
         ol: ({node, ...props}) => <ol className={`list-decimal ${isCompact ? "pl-4 mb-2" : "pl-5 mb-4"}`} {...props} />,
         li: ({node, ...props}) => <li className="mb-1" {...props} />,
-        blockquote: ({node, ...props}) => <blockquote className={`italic ${isCompact ? "border-l-2 border-gray-300 pl-2 my-2" : "border-l-4 border-gray-200 pl-4 my-4"}`} {...props} />,
+        blockquote: ({node, ...props}) => <blockquote className={`border-l-4 border-gray-300 pl-4 ${isCompact ? "my-2" : "my-4"} text-gray-700`} {...props} />,
         code: ({inline, className, children, ...props}: any) => {
           return inline 
             ? <code className={`${isCompact ? "bg-gray-200 px-1 py-0.5 rounded text-xs" : "bg-gray-100 px-1 py-0.5 rounded"}`} {...props}>{children}</code>
