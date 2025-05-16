@@ -14,7 +14,7 @@ const tils = await fetchAllTILs();
     ) : (
       <ul class="space-y-6">
         {tils.map((item: any) => {
-          const { title, slug, confidence, createdAt, tags } = item.attributes;
+          const { title, slug, confidence, createdAt, tags } = item;
           return (
             <li class="p-6 rounded-2xl border border-zinc-200 dark:border-zinc-700 hover:shadow transition-shadow bg-white/80 dark:bg-zinc-800/80">
               <a href={`/til/${slug}`} class="block space-y-2">
