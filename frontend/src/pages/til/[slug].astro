@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { fetchTILBySlug } from '../../lib/api';
+
+const { slug } = Astro.params;
+const til = await fetchTILBySlug(slug);
+---
+
+<BaseLayout title={til.attributes.title}>
+  <article>
+    <h1>{til.attributes.title}</h1>
+    <p>自信指数：{til.attributes.confidence}/10</p>
+    <div innerHTML={til.attributes.content} />
+  </article>
+</BaseLayout>

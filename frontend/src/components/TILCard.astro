@@ -1,0 +1,11 @@
+---
+const { til } = Astro.props;
+---
+
+<li>
+  <a href={`/til/${til.attributes.slug}`}>
+    <h2>{til.attributes.title}</h2>
+    <p>自信指数：{til.attributes.confidence}/10</p>
+    <p>{new Date(til.attributes.createdAt).toLocaleDateString()}</p>
+  </a>
+</li>

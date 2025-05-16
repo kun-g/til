@@ -1,0 +1,42 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { fetchAllTILs } from '@/lib/api';
+
+const pageTitle = 'TIL 一览';
+
+const tils = await fetchAllTILs();
+---
+
+<BaseLayout pageTitle={pageTitle} description="每天学一点，逐步构建知识图谱" module="tils">
+  <section class="space-y-6">
+    {tils.length === 0 ? (
+      <p class="text-zinc-500 text-sm">暂无记录，去学习一条吧 💡</p>
+    ) : (
+      <ul class="space-y-6">
+        {tils.map((item: any) => {
+          const { title, slug, confidence, createdAt, tags } = item.attributes;
+          return (
+            <li class="p-6 rounded-2xl border border-zinc-200 dark:border-zinc-700 hover:shadow transition-shadow bg-white/80 dark:bg-zinc-800/80">
+              <a href={`/til/${slug}`} class="block space-y-2">
+                <h2 class="text-xl font-semibold tracking-tight hover:underline">{title}</h2>
+                <div class="flex items-center justify-between text-sm text-zinc-500 dark:text-zinc-400">
+                  <span>{new Date(createdAt).toLocaleDateString()}</span>
+                  <span>自信指数：<strong>{confidence}/10</strong></span>
+                </div>
+                {tags && tags.length > 0 && (
+                  <div class="flex flex-wrap gap-2 mt-2">
+                    {tags.map((t: any) => (
+                      <span class="text-xs bg-zinc-100 dark:bg-zinc-700 text-zinc-600 dark:text-zinc-200 px-2 py-0.5 rounded-full">
+                        {t.label}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    )}
+  </section>
+</BaseLayout>

@@ -1,0 +1,29 @@
+---
+import '@/styles/global.css';
+import Navbar from '@/components/navbar.tsx';
+const { content, pageTitle, description, module } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description || ''} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description || ''} />
+    <meta property="og:type" content="website" />
+  </head>
+  <body class="bg-zinc-50 text-zinc-800 dark:bg-zinc-900 dark:text-zinc-100 font-sans">
+      <Navbar module={module} />
+
+      <main class="flex-grow space-y-8">
+        <slot />
+      </main>
+
+      <footer class="mt-16 pt-6 border-t border-zinc-200 dark:border-zinc-700 text-sm text-zinc-500 text-center">
+        © {new Date().getFullYear()} <a href="https://mergebrainrot.net" class="hover:underline">mergebrainrot.net</a>
+      </footer>
+  </body>
+</html>
