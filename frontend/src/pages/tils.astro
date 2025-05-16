@@ -1,11 +1,14 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { fetchAllTILs } from '@/lib/api';
-import { Badge, BadgeButton } from '@/components/catalyst-ui/badge';
+import { BadgeButton } from '@/components/catalyst-ui/badge';
+import { getCollection, getEntry } from 'astro:content';
 
 const pageTitle = 'TIL 一览';
 
 const tils = await fetchAllTILs();
+// TODO: 使用astro:content获取TIL
+// const tils = await getCollection("til");
 ---
 
 <BaseLayout pageTitle={pageTitle} description="每天学一点，逐步构建知识图谱" module="tils">

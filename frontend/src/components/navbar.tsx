@@ -2,7 +2,7 @@ import { Navbar, NavbarItem, NavbarSection } from '@/components/catalyst-ui/navb
 
 export default function Component({ module }: { module: string }) {
   return (
-    <Navbar>
+    <Navbar className="justify-center">
       <NavbarSection className="max-lg:hidden">
         <NavbarItem href="/" current={module === "home"}> Home </NavbarItem>
         <NavbarItem href="/tils" current={module === "tils"}>TIL</NavbarItem>

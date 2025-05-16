@@ -1,7 +1,8 @@
 ---
 import '@/styles/global.css';
 import Navbar from '@/components/navbar.tsx';
-const { content, pageTitle, description, module } = Astro.props;
+import Footer from '@/components/Footer.astro';
+const { pageTitle, description, module } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -18,12 +19,10 @@ const { content, pageTitle, description, module } = Astro.props;
   <body class="bg-zinc-50 text-zinc-800 dark:bg-zinc-900 dark:text-zinc-100 font-sans">
       <Navbar module={module} />
 
-      <main class="flex-grow space-y-8">
+      <main class="flex-grow mt-4">
         <slot />
       </main>
 
-      <footer class="mt-16 pt-6 border-t border-zinc-200 dark:border-zinc-700 text-sm text-zinc-500 text-center">
-        © {new Date().getFullYear()} <a href="https://mergebrainrot.net" class="hover:underline">mergebrainrot.net</a>
-      </footer>
+      <Footer />
   </body>
 </html>
